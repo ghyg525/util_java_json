@@ -1,16 +1,14 @@
 package gson;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
-
 import com.google.gson.Gson;
-import com.google.gson.JsonParseException;
 
 public class JsonUtil {
 	
 	private static final Gson gson = new Gson();
 	
-	/*// 可使用GsonBuilder设置初始化参数后创建Gson对象;
+	/*
+	// 可使用GsonBuilder设置初始化参数后创建Gson对象;
 	private static final Gson gson = new GsonBuilder()
 		.excludeFieldsWithoutExposeAnnotation() //不导出实体中没有用@Expose注解的属性 
 		.setPrettyPrinting()	 // 设置方便阅读样式
@@ -31,13 +29,10 @@ public class JsonUtil {
 	
 	/**
 	 * 将json字符串转换成对象
-	 * 
 	 * @param json
 	 * @param valueType
 	 * @return
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws IOException
+	 * @throws Exception
 	 */
 	public static <T> T toObject(String json, Class<T> valueType) throws Exception {
 		return gson.fromJson(json, valueType);
@@ -45,13 +40,14 @@ public class JsonUtil {
 	
 	/**
 	 * 将json字符串转换成复杂对象
+	 * (json, new TypeToken<T>(){}.getType())
 	 * @param json
-	 * @param typeOfT 此属性可以通过new TypeToken<T>(){}.getType()获得
+	 * @param type
 	 * @return
 	 * @throws Exception
 	 */
-	public static <T> T toObject(String json, Type typeOfT) throws Exception {
-		return gson.fromJson(json, typeOfT);
+	public static <T> T toObject(String json, Type type) throws Exception {
+		return gson.fromJson(json, type);
 	}	
 
 }

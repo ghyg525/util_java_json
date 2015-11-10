@@ -26,9 +26,7 @@ public class JsonUtil {
 	 * @param json
 	 * @param valueType
 	 * @return
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws IOException
+	 * @throws Exception
 	 */
 	public static <T> T toObject(String json, Class<T> valueType) throws Exception {
 		return objectMapper.readValue(json, valueType);
@@ -43,9 +41,7 @@ public class JsonUtil {
 	 * @param parametersFor
 	 * @param parameterClasses
 	 * @return
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws IOException
+	 * @throws Exception
 	 */
 	public static <T> T toObject(String json, Class<?> parametrized, Class<?> parametersFor, Class<?>... parameterClasses) throws JsonParseException, JsonMappingException, IOException {
 		return objectMapper.readValue(json, objectMapper.getTypeFactory().constructParametrizedType(parametrized, parametersFor, parameterClasses));
