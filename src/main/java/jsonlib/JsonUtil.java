@@ -1,7 +1,7 @@
 package jsonlib;
 
 import net.sf.json.JSONObject;
-import net.sf.json.xml.XMLSerializer;
+import net.sf.json.JSONSerializer;
 
 public class JsonUtil {
 	
@@ -12,17 +12,7 @@ public class JsonUtil {
 	 * @throws Exception
 	 */
 	public static String toJson(Object object) throws Exception {
-		return JSONObject.fromObject(object).toString();
-	}
-	
-	/**
-	 * 将xml转换成json字符串
-	 * @param object
-	 * @return
-	 * @throws Exception
-	 */
-	public static String toJson(String xml) throws Exception {
-		return JSONObject.fromObject(new XMLSerializer().read(xml)).toString();
+		return JSONSerializer.toJSON(object).toString();
 	}
 	
 	/**

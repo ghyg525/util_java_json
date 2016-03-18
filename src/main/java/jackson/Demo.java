@@ -9,7 +9,6 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.type.TypeReference;
 
 
 public class Demo {
@@ -45,20 +44,6 @@ public class Demo {
 		System.out.println(beanListJson);
 		List<Bean> beanListObject = JsonUtil.toObject(beanListJson, ArrayList.class, List.class, Bean.class);
 		System.out.println(beanListObject);
-		
-		// bean map
-		System.err.println("bean map:");
-		String beanMapJson = JsonUtil.toJson(beanMap);
-		System.out.println(beanMapJson);
-		Map<Object, Bean> beanMapObject = JsonUtil.toObject(beanMapJson, new TypeReference<Map<Object, Bean>>(){});
-		System.out.println(beanMapObject);
-		
-		// object list
-		System.err.println("object list:");
-		String objListJson = JsonUtil.toJson(objList);
-		System.out.println(objListJson);
-		List<Object> objListObject = JsonUtil.toObject(objListJson, new TypeReference<List<Object>>(){});
-		System.out.println(objListObject);
 		
 		// object map
 		System.err.println("object map:");

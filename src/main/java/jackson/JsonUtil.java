@@ -3,7 +3,6 @@ package jackson;
 import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -37,9 +36,9 @@ public class JsonUtil {
 	 * List<bean> : json, ArrayList.class, List.class, Bean.class
 	 * Map<bean1, bean2> : json, HashMap.class, Map.class, Bean1.class, Bean2.class
 	 * @param json
-	 * @param parametrized
-	 * @param parametersFor
-	 * @param parameterClasses
+	 * @param parametrized 要转换的真实类型
+	 * @param parametersFor 要转换类型的类或接口
+	 * @param parameterClasses 类型中的泛型类型
 	 * @return
 	 * @throws Exception
 	 */
@@ -47,18 +46,4 @@ public class JsonUtil {
 		return objectMapper.readValue(json, objectMapper.getTypeFactory().constructParametrizedType(parametrized, parametersFor, parameterClasses));
 	}
 	
-	/**
-	 * json转对象(处理复杂类型对象) 
-	 * json, new TypeReference<T>(){}
-	 * @param json
-	 * @param valueTypeRef 
-	 * @return
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws IOException
-	 */
-	public static <T> T toObject(String json, TypeReference<T> valueTypeRef) throws JsonParseException, JsonMappingException, IOException {
-		return objectMapper.readValue(json, valueTypeRef);
-	}
-
 }
