@@ -1,9 +1,5 @@
 package jackson;
 
-import java.io.IOException;
-
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonUtil {
@@ -42,7 +38,7 @@ public class JsonUtil {
 	 * @return
 	 * @throws Exception
 	 */
-	public static <T> T toObject(String json, Class<?> parametrized, Class<?> parametersFor, Class<?>... parameterClasses) throws JsonParseException, JsonMappingException, IOException {
+	public static <T> T toObject(String json, Class<?> parametrized, Class<?> parametersFor, Class<?>... parameterClasses) throws Exception {
 		return objectMapper.readValue(json, objectMapper.getTypeFactory().constructParametrizedType(parametrized, parametersFor, parameterClasses));
 	}
 	
