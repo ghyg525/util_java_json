@@ -1,9 +1,5 @@
 package jackson;
 
-import java.io.IOException;
-
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 public class XmlUtil {
@@ -43,7 +39,7 @@ public class XmlUtil {
 	 * @return
 	 * @throws Exception
 	 */
-	public static <T> T toObject(String xml, Class<?> parametrized, Class<?> parametersFor, Class<?>... parameterClasses) throws JsonParseException, JsonMappingException, IOException {
+	public static <T> T toObject(String xml, Class<?> parametrized, Class<?> parametersFor, Class<?>... parameterClasses) throws Exception {
 		return xmlMapper.readValue(xml, xmlMapper.getTypeFactory().constructParametrizedType(parametrized, parametersFor, parameterClasses));
 	}
 
