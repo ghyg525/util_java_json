@@ -1,10 +1,12 @@
 package jackson;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonUtil {
 	
-	private static final ObjectMapper objectMapper = new ObjectMapper();
+	public static ObjectMapper objectMapper = new ObjectMapper()
+			.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false); // 忽略未知属性
 	
 	/**
 	 * 将对象转换成json字符串
