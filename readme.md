@@ -1,8 +1,8 @@
-#### java json生成与解析
+#### java json处理工具类
 
 * gson (google)
 
-* jackson (spring集成)
+* jackson (spring默认集成)
 
 * json lib (老牌, 据说正在被jackson取代)
 

@@ -1,4 +1,4 @@
-package jsonlib;
+package org.yangjie.jsonlib;
 
 import net.sf.json.JSONSerializer;
 import net.sf.json.xml.XMLSerializer;

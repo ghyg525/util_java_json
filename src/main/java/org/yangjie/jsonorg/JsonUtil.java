@@ -1,9 +1,12 @@
-package jsonorg;
+package org.yangjie.jsonorg;
 
 import org.json.JSONObject;
 import org.json.XML;
 
-
+/**
+ * json处理工具类
+ * @author YangJie [2017年9月18日 上午11:32:43]
+ */
 public class JsonUtil {
 	
 	/**

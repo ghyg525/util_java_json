@@ -1,8 +1,12 @@
-package jsonlib;
+package org.yangjie.jsonlib;
 
 import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
 
+/**
+ * json处理工具类
+ * @author YangJie [2017年9月18日 上午11:32:38]
+ */
 public class JsonUtil {
 	
 	/**

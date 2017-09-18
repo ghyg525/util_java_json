@@ -1,8 +1,12 @@
-package jackson;
+package org.yangjie.jackson;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * json处理工具类
+ * @author YangJie [2017年9月18日 上午11:32:33]
+ */
 public class JsonUtil {
 	
 	public static ObjectMapper objectMapper = new ObjectMapper()

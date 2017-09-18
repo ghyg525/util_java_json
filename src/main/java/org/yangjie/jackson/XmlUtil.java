@@ -1,4 +1,4 @@
-package jackson;
+package org.yangjie.jackson;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 

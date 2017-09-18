@@ -1,8 +1,12 @@
-package gson;
+package org.yangjie.gson;
 
 import java.lang.reflect.Type;
 import com.google.gson.Gson;
 
+/**
+ * json处理工具类
+ * @author YangJie [2017年9月18日 上午11:32:19]
+ */
 public class JsonUtil {
 	
 	private static final Gson gson = new Gson();
