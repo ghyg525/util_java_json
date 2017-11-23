@@ -1,8 +1,12 @@
 #### java json处理工具类
 
-* gson (google)
+* fastjson (阿里开源, 方便快捷)
 
-* jackson (spring默认集成)
+* gson (来自google, 适合信仰玩家)
+
+* jackson (springboot默认集成, 功能强大)
+
+
 
 * json lib (老牌, 据说正在被jackson取代)
 

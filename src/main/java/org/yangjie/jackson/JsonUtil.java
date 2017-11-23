@@ -1,5 +1,6 @@
 package org.yangjie.jackson;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -34,18 +35,30 @@ public class JsonUtil {
 	}
 	
 	/**
-	 * json转对象(处理复杂类型对象) 
-	 * List<bean> : json, ArrayList.class, List.class, Bean.class
-	 * Map<bean1, bean2> : json, HashMap.class, Map.class, Bean1.class, Bean2.class
+	 * json转对象(容器对象类型) 
+	 * List<Bean> : (json, List.class, Bean.class)
+	 * Map<Bean1, Bean2> : (json, Map.class, Bean1.class, Bean2.class)
 	 * @param json
-	 * @param parametrized 要转换的真实类型
-	 * @param parametersFor 要转换类型的类或接口
-	 * @param parameterClasses 类型中的泛型类型
+	 * @param parametrized 容器类型
+	 * @param parameterClasses 实体类型
 	 * @return
 	 * @throws Exception
 	 */
-	public static <T> T toObject(String json, Class<?> parametrized, Class<?> parametersFor, Class<?>... parameterClasses) throws Exception {
-		return objectMapper.readValue(json, objectMapper.getTypeFactory().constructParametrizedType(parametrized, parametersFor, parameterClasses));
+	public static <T> T toObject(String json, Class<?> parametrized, Class<?>... parameterClasses) throws Exception {
+		return objectMapper.readValue(json, objectMapper.getTypeFactory().constructParametricType(parametrized, parameterClasses));
+	}
+	
+	/**
+	 * json转对象(容器嵌套类型)
+	 * List<List<Object>> : (json, new TypeReference<List<List<Object>>>(){})
+	 * Map<String, List<List<Object>>> : (json, new TypeReference<Map<String, List<List<Object>>>(){})
+	 * @param json
+	 * @param valueTypeRef
+	 * @return
+	 * @throws Exception
+	 */
+	public static <T> T toObject(String json, TypeReference<T> valueTypeRef) throws Exception {
+		return objectMapper.readValue(json, valueTypeRef);
 	}
 	
 }
