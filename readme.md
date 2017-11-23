@@ -2,7 +2,7 @@
 
 * fastjson (阿里开源, 方便快捷)
 
-* gson (来自google, 适合信仰玩家)
+* gson (来自google, 血统纯正)
 
 * jackson (springboot默认集成, 功能强大)
 
